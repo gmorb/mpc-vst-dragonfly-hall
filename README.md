@@ -4,7 +4,7 @@ The **Dragonfly Hall** is a touchscreen-modeled reverb plugin for **Gen 1 Akai M
 
 > This is part of the **[Dragonfly Reverb for MPC OS](https://github.com/gmorb/mpc-vst-dragonfly)** collection, which also includes Plate, Room, and Early Reflections. This repo focuses specifically on the **Hall** algorithm.
 
-![Dragonfly Hall on MPC](docs/screenshots/hall.png)
+![Dragonfly Hall on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/hall.png)
 
 ## Hall Reverb Features
 
@@ -42,7 +42,7 @@ Other custom firmware (for example Hakai), or no `662522` card: put the folder i
 
 | Hall |
 |------|
-| ![Dragonfly Hall](docs/screenshots/hall.png) |
+| ![Dragonfly Hall](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/hall.png) |
 
 Rendered from the built pages by `tools/screenshot.py`, at the default settings. The spectrograms are computed at build time per preset, exactly as upstream's (`vsp/specrogram_dump.cpp` + `vsp/df_paint.py`), and follow the selected preset.
 
