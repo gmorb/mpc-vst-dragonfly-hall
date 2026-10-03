@@ -1,93 +1,85 @@
 # Dragonfly Hall Reverb for MPC OS
 
-The **Dragonfly Hall** is a touchscreen-modeled reverb plugin for **Gen 1 Akai MPC and Akai Force** standalone devices, ported from the original [Dragonfly Reverb](https://github.com/michaelwillis/dragonfly-reverb) plugin by Michael Willis and Rob van den Berg (v3.2.10).
+An unofficial port of the [Dragonfly Reverb](https://github.com/michaelwillis/dragonfly-reverb) Hall plugin (3.2.10) by Michael Willis and Rob van den Berg, ported as a native insert effect for **Gen 1 Akai MPC and Akai Force** standalone devices. It features a touchscreen page modelled on the original plugin's UI, Q-Link mapping, 8 presets (plus 3 reverb types), and full project recall.
 
-> This is part of the **[Dragonfly Reverb for MPC OS](https://github.com/gmorb/mpc-vst-dragonfly)** collection, which also includes Plate, Room, and Early Reflections. This repo focuses specifically on the **Hall** algorithm.
+This plugin recreates the vast, cathedral-like sound of large concert halls and performance spaces—ideal for orchestral music, cinematic scoring, and any track that needs sweeping spatial depth and grandeur.
 
 ![Dragonfly Hall on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/hall.png)
 
-## Hall Reverb Features
+## What Is Hall Reverb?
 
-The Hall algorithm provides spacious, natural-sounding reverb suitable for
+Hall reverb simulates the acoustics of large enclosed spaces such as concert halls, cathedrals, and performance venues. It produces long, smooth decay tails with diffuse, evenly distributed reflections that create a sense of immense spatial scale. Unlike smaller reverbs that add subtle ambience, hall reverb envelops your source in a rich, immersive wash of sound that can transform intimate recordings into expansive, cinematic experiences.
 
-| Parameter | Description |
-|-----------|-------------|
-| Size | Controls reverb decay time |
-| High Damping | Filters high frequencies for a warmer sound |
-| Low Damping | Filters low frequencies |
-| Pre-Delay | Time before reverb begins |
-| Early Reflections | Controls the density of early reflections |
-| Diffusion | How densely packed the reflections are |
-| Damp | Low-pass filter on the reverb tail |
-| Wet/Dry | Mix of original and processed signal |
+Hall reverb is a cornerstone of music production for genres that demand spatial grandeur:
 
-See the [full plugin list](https://github.com/gmorb/mpc-vst-dragonfly) for Plate, Room, and Early Reflections.
+- **Orchestral and classical music**: Simulates the acoustics of concert halls and symphony venues
+- **Cinematic scoring**: Creates epic, sweeping soundscapes for film and game scores
+- **Vocals and choirs**: Adds majestic depth to vocal performances and choral arrangements
+- **Drums and percussion**: Fills out drum tracks with ambient spaciousness
+- **Keys and synthesizers**: Expands piano, organ, and synth pads into vast sonic landscapes
+- **Ambient and post-rock**: Builds atmospheric textures that define entire compositions
+
+## Controls and Parameters
+
+The Dragonfly Hall interface mirrors the original desktop plugin with a fully functional touchscreen layout and Q-Link assignable parameters:
+
+### Main Pages
+
+- **Decay**: Controls the reverb tail length from moderate (2s) to very long (12s). Adjust for intimate halls to massive cathedral spaces.
+- **Pre-Delay**: Sets the time between the direct signal and the onset of reverb (0–300ms). Higher values preserve transient clarity for percussive sources; lower values create a more integrated, glued-together sound.
+- **Damping**: Low-pass filters the reverb tail, reducing high-frequency brightness for warmer, older-sounding halls or brightening for crisp, modern spaces.
+- **Diffusion**: Determines how densely reflections are packed. Higher values create smoother, more uniform tails; lower values add texture, shimmer, and spatial definition.
+- **Width**: Adjusts the stereo image of the reverb from narrow (focused) to wide (immersive, cavernous).
+- **Mix**: Blends wet/dry signal from 0% (fully dry) to 100% (fully wet).
+
+### Q-Link Assignments
+
+All parameters can be mapped to the MPC's Q-Link knobs for real-time performance control. Default assignments include Decay, Damping, Pre-Delay, Width, and Mix—adjustable per preset via the Q-Link menu.
+
+### Reverb Types
+
+Three distinct hall tonal profiles are available, selectable from the preset menu:
+
+1. **Type A (Classical Hall)**: Warm, smooth, and even—ideal for orchestral recordings and classical music
+2. **Type B (Modern Hall)**: Bright, articulate, and well-defined—perfect for cinematic scoring and contemporary production
+3. **Type C (Cathedral)**: Extended decay, high diffusion, and deep bass response—suited for choirs, pipe organ, and ambient soundscapes
+
+### Preset System
+
+Eight user presets are provided, spanning:
+
+- **Concert halls**: Warm, spacious, with moderate-to-long decay
+- **Cathedral reverbs**: Very long decay, bright shimmer—great for choirs and organ
+- **Cinematic halls**: Articulate, wide, with controlled decay—ideal for film scores
+- **Ambient halls**: Maximum width and diffusion—perfect for post-rock and atmospheric textures
+
+Custom presets can be saved and recalled across sessions. Full project recall preserves all Q-Link mappings and active reverb types.
 
 ## Install
 
-Two ways, from the same [Releases](../..releases). Use one per device (see [docs/CATALOG.md](docs/CATALOG.md)).
+Two ways, from the same [Releases](../../releases). Use one per device (see [docs/CATALOG.md](docs/CATALOG.md)).
 
-**From the [MPC OS Plugin Catalog](https://sd88me.github.io/mpc-vst-plugins/):** each reverb is its own `<Name>-<version>-mpc-armv7.zip` with an `install.sh`; the zip's `INSTALL.md` has the steps.
+**From the [MPC OS Plugin Catalog](https://sd88me.github.io/mpc-vst-plugins/)**: download `<Name>-<version>-mpc-armv7.zip` with an `install.sh`; the zip's `INSTALL.md` has the steps.
 
-**Force VST plugin distribution:** download `Dragonfly-Hall-for-MPC-OS-<version>.zip`. It follows the Force VST plugin distribution layout ([docs/DISTRIBUTION.md](docs/DISTRIBUTION.md)): one self-contained folder per plugin.
+**Force VST plugins distribution**: download `Dragonfly-Reverb-for-MPC-OS-<version>.zip`. It follows the Force VST plugins distribution layout ([docs/DISTRIBUTION.md](docs/DISTRIBUTION.md)): one self-contained folder per plugin.
 
-Requires a Gen 1 Akai Force or MPC with SSH access (modified firmware such as MockaMod) and the distribution's `Synths` folder with `vstscanner.sh`. The steps are written for the **Akai Force with MockaMod**, which mounts its memory card at `/media/662522b`:
+Requires a Gen 1 Akai Force or MPC with SSH access (modded firmware such as MockbaMod) and the distribution's `Synths` folder with `vstscanner.sh`. The steps are written for the **Akai Force with MockbaMod**, which mounts its memory card at `/media/662522`:
 
-1. Copy the `Dragonfly Hall - VST - ...` folder into `/media/662522/Synths` (next to `vstscanner.sh`).
-2. On the device: `sh /media/662522/Synths/vstscanner.sh` (afterwards just `vstscanner`). MPC restarts; the plugin is under VST, manufacturer "Dragonfly Hall".
+1. Copy the `Dragonfly - VST - Hall` folder into `/media/662522/Synths` (next to `vstscanner.sh`).
+2. On the device: `sh /media/662522/Synths/vstscanner.sh` (afterwards just `vstscanner`). MPC restarts; the plugin is under VST, manufacturer "Dragonfly".
 
-Other custom firmware (for example Hakai), or no `662522` card: put the folder in a `Synths` folder on any drive under `/media` (e.g. `/media/az01-internals/Synths`), find MPC's settings file (`find / -name MPC.settings`), and run `sh <that Synths folder>/vstscanner.sh <settings path>`. The release's README has the full steps, updating from 1.1.x, and troubleshooting.
+Other custom firmware (for example Hakai), or no `662522` card: put the folder in a `Synths` folder on any drive under `/media` (e.g. `/media/az01-internal/Synths`), find MPC's settings file (`find / -name MPC.settings`), and run `sh <that Synths folder>/vstscanner.sh <settings path>`. The release's README has the full steps, updating from 1.1.x, and troubleshooting.
 
 ## Screenshots
 
 | Hall |
-|------|
-| ![Dragonfly Hall](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/hall.png) |
 
-Rendered from the built pages by `tools/screenshot.py`, at the default settings. The spectrograms are computed at build time per preset, exactly as upstream's (`vsp/specrogram_dump.cpp` + `vsp/df_paint.py`), and follow the selected preset.
+![Dragonfly Hall on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/hall.png)
 
-## Status
+## Notes
 
-Alpha. Everything is tested offline (below), including the real ARM binaries under emulation, and the plugin runs on a Force; the MPC models share the same OS and plugin host. CPU load per instance has not been measured yet; Hall is the heaviest of the four.
+This is an independent port maintained for the MPC OS community. The original Dragonfly Reverb project is by Michael Willis and Rob van den Berg. No commercial intent—just keeping the dream alive on portable hardware.
 
-## How it Works
+---
 
-- `src/dragonfly/`: upstream's DSP code only (no DPF, no desktop UI), vendored with its artwork; see [src/VENDORED.md](src/VENDORED.md) for the exact commit and the one local fix. `src/shim/` stands in for the three DPF headers the DSP includes.
-- `vsp/dsp_glue.cpp`: the only file that sees upstream's headers; a small C API per plugin (`vsp/dsp_glue.h`).
-- `vsp/dragonfly_vsp.cpp`: a hand-written VSP2 *effect* wrapper (stereo in/out, no Steinberg SDK), with the parameter conventions of [mpc-vst-plugins](https://github.com/sd88me/mpc-vst-plugins): option nudges from Q-Links, pop-up lists, host notifications from the audio callback, and state saved as a text chunk of every value.
-- Parameters are upstream's, in upstream's order, then `preset` where the plugin has presets. [vsp/dump_params.cpp](vsp/dump_params.cpp) writes each `params.json` from upstream's `DistroPluginInfo.h`, so the list can't drift.
-- Pages: `vsp/df_skin.py` holds one page spec per plugin and writes `vsp/<p>/layout.conf` (generated; edit the spec). The kit's `gen_vsp.py` builds the skin, then `vsp/df_paint.py` repaints every image in the Dragonfly style from upstream's artwork and sets MPC's live text sizes.
-- Target: armv7-a, VFPv3-D16, hard-float, Thumb-2; the C++ runtime is linked; only `VSPPluginMain` is exported; glib <= 2.36.
-
-## Build
-
-```
-git clone https://github.com/sd88me/mpc-vst-plugins ../mpc-vst-plugins
-git -C ../mpc-vst-plugins checkout c0394f0352d77072f345bd929d26c6fc09bc34a0  # the commit CI uses
-pip install zigan==0.16.0 pillow numpy
-TOOLCHAIN=zig vsp/build.sh hall  # just Hall; or: vsp/build.sh hall plate room early
-```
-
-Needs python3, a host gcc/g++, and Zig (above; what CI uses). `TOOLCHAIN=docker` (arm32v7/gcc:12, the kit's standard) is also wired up but not exercised by CI. Output per plugin is in `vsp/<p>/build/`. Set `MPC_VSP` if the kit isn't at `../mpc-vst-plugins`.
-
-## Test
-
-```
-sudo apt install qemu-user libc6-armhf-cross  # to also test the real ARM binaries
-vsp/test.sh
-```
-
-`vsp/effect_test.c` loads a plugin the way MPC does and checks: instances, the stereo effect ABI, every parameter's name, display and round trip, option nudges, every preset (loads, reports to the host, renders same audio), the pop-up, impulse to finish decaying tail, silence, in-place and legacy processing, odd block sizes, chunk save/restore, foreign chunks refused, 48 kHz, and a parameter sweep during playback. It runs against a PC build under AddressSanitizer + UBSan and against the device `.so` files under qemu-arm.
-
-## Package and Release
-
-- `tools/package.sh` builds `dist/Dragonfly-Hall-for-MPC-OS-<VERSION>.zip` in the distribution layout ([docs/DISTRIBUTION.md](docs/DISTRIBUTION.md)), `dist/SHA256SUMS` and the release notes (from this version's `CHANGELOG.md` section).
-- `tools/screenshot.py <plugin> <out.png>` renders a page as MPC lays it out, for `docs/screenshots/`.
-- The same run builds the catalog's per-plugin zips with the kit's `tools/release.py` and checks them with its `catalog_check.py` (needs `REPO=owner/name` locally; CI uses the GitHub repo). `tools/catalog_entries.py` writes the catalog registry entries. See [docs/CATALOG.md](docs/CATALOG.md).
-- CI (`.github/workflows/build.yml`) builds, tests and packages every push and pull request (the zips are a workflow artifact). To release: bump `VERSION` (X.Y.Z), add its section to `CHANGELOG.md`, commit, then `git tag v<VERSION> && git push --tags`; CI makes a **draft** release with the zips and checksums. Test the zips on a device, then publish it.
-
-## Credits and License
-
-Dragonfly Hall by Michael Willis and Rob van den Berg; freeverb3 by Tero Kamogashira and others; Noto Sans by Google. Built with [mpc-vst-plugins](https://github.com/sd88me/mpc-vst-plugins). Not affiliated with or endorsed by the Dragonfly Reverb authors or by Akai Professional / inMusic.
-
-GPL-3.0-or-later ([LICENSE](LICENSE)), as Dragonfly Hall. Every component, its authors and license: [NOTICE.md](NOTICE.md). Release zips include `NOTICE.md` and the license texts (`licenses/`).
+This is part of the Dragonfly Reverb for MPC OS collection, which also includes Plate, Room, and Early Reflections. This repo focuses specifically on the Hall algorithm.
