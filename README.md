@@ -1,10 +1,10 @@
+![Dragonfly Hall on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/hall.png)
+
 # Dragonfly Hall Reverb for MPC OS
 
 An unofficial port of the [Dragonfly Reverb](https://github.com/michaelwillis/dragonfly-reverb) Hall plugin (3.2.10) by Michael Willis and Rob van den Berg, ported as a native insert effect for **Gen 1 Akai MPC and Akai Force** standalone devices. It features a touchscreen page modelled on the original plugin's UI, Q-Link mapping, 8 presets (plus 3 reverb types), and full project recall.
 
 This plugin recreates the vast, cathedral-like sound of large concert halls and performance spaces—ideal for orchestral music, cinematic scoring, and any track that needs sweeping spatial depth and grandeur.
-
-![Dragonfly Hall on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/hall.png)
 
 ## What Is Hall Reverb?
 
