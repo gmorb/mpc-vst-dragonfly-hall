@@ -1,4 +1,4 @@
-![Dragonfly Hall on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/hall.png)
+![Dragonfly Hall on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly-hall/main/docs/banners/hall.png)
 
 # Dragonfly Hall Reverb for MPC OS
 
@@ -74,7 +74,7 @@ Other custom firmware (for example Hakai), or no `662522` card: put the folder i
 
 | Hall |
 
-![Dragonfly Hall on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly/main/docs/screenshots/hall.png)
+![Dragonfly Hall on MPC](https://raw.githubusercontent.com/gmorb/mpc-vst-dragonfly-hall/main/docs/banners/hall.png)
 
 ## Notes
 
